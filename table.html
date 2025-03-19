@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Table</title>
+    <script>
+        function addClassInfo() {
+            var className = document.getElementById("className").value;
+            var numPeople = document.getElementById("numPeople").value;
+            var description = document.getElementById("description").value;
+            
+            if (className === "" || numPeople === "" || description === "") {
+                alert("Please fill all fields!");
+                return;
+            }
+            
+            var table = document.getElementById("classTable");
+            var row = table.insertRow(-1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            
+            cell1.innerHTML = className;
+            cell2.innerHTML = numPeople;
+            cell3.innerHTML = description;
+            
+            document.getElementById("classForm").reset();
+        }
+    </script>
+</head>
+<body>
+    <h2>Class Information</h2>
+    <form id="classForm" onsubmit="event.preventDefault(); addClassInfo();">
+        <input type="text" id="className" placeholder="Class Name">
+        <input type="number" id="numPeople" placeholder="Number of People">
+        <input type="text" id="description" placeholder="Description">
+        <button type="submit">Add Class</button>
+    </form>
+    <table border="1" id="classTable">
+        <tr>
+            <th>Class Name</th>
+            <th>Number of People</th>
+            <th>Description</th>
+        </tr>
+    </table>
+</body>
+</html>
